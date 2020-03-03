@@ -1,0 +1,15 @@
+<div class="center">
+    <h3 appHighlight>{{product.title | uppercase}}</h3>
+</div>
+
+<img [src]="product.image" alt="">
+<p>{{ product.description | slice:0:10 }}</p>
+<p>{{ today | date:'mediun'}}</p>
+<div class="row">
+    <div class="text-left">
+        <strong>{{ product.price | currency }}</strong>
+    </div>
+    <div class="text-right">
+        <button class="btn btn-primary" (click)="addCart()">Agregar al carrito</button>
+    </div>
+</div>
