@@ -2,10 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { DemoComponent } from './demo/demo.component';
-
+import { SharedModule } from './../share.module'
 import { DemoRoutingModule } from './demo-routing.module';
-import {SharedModule} from '../share.module';
-import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -15,8 +13,7 @@ import {FormsModule} from '@angular/forms';
   imports: [
     CommonModule,
     SharedModule,
-    DemoRoutingModule,
-    FormsModule
+    DemoRoutingModule
   ]
 })
 export class DemoModule {
