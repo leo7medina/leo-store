@@ -30,11 +30,13 @@ export class ProductListComponent implements OnInit {
   
   deleteProduct(id: string, index: number) {
     this.productService.deleteProduct(id).subscribe(response => {
+      console.log(response);
       if (response) {
         console.log('index' + index);
         this.listProducts.splice(Number(index), 1);
+        this.listProducts = [... this.listProducts = this.listProducts];
       }
-    })
+    });
   }
 
 }

@@ -1,21 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
-
-import { AppComponent } from './app.component';
-import {HomeComponent} from './modules/home/home/home.component';
-import {ProductsComponent} from './modules/products/products/products.component';
-import {ContactComponent} from './modules/contact/contact/contact.component';
-import {PageNotFoundComponent} from './modules/page-not-found/404/page-not-found.component';
 import {LayoutComponent} from './components/layout/layout.component';
 import {AdminGuard} from './guard/admin.guard';
 
 
 const routes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  {
+    path: 'login',
+    loadChildren: () => import('./modules/session/session.module').then(m => m.SessionModule)
+  },
   {
     path: '',
     component: LayoutComponent,
     children: [
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
       {
         path: 'home',
         loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
