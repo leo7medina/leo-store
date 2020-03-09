@@ -40,3 +40,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 # ng serve -c=stag
 # ng build -c=stag
+
+# deploy hosting firebase
+# npm install -g firebase tools
+# firebase login
+# firebase init
+# firebase deploy
+
+#https://leo-store.firebaseapp.com
