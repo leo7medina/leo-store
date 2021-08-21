@@ -4,11 +4,11 @@ import { RouterModule } from '@angular/router';
 
 import { HeaderComponent } from '../components/header/header.component';
 import { FooterComponent } from '../components/footer/footer.component';
-import {ExponentialPipe} from '../pipes/exponential.pipe';
-import {HighlightDirective} from '../directives/highlight.directive';
+import {ExponentialPipe} from '../common/pipes/exponential.pipe';
+import {HighlightDirective} from '../common/directives/highlight.directive';
 import { MaterialModule } from './material.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CartPipe } from '../pipes/cart.pipe';
+import { CartPipe } from '../common/pipes/cart.pipe';
 
 @NgModule({
   declarations: [

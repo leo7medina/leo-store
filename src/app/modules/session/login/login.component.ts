@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent implements OnInit {
 
   form: FormGroup;
-  
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -34,9 +34,14 @@ export class LoginComponent implements OnInit {
     event.preventDefault();
     if (this.form.valid) {
       const value = this.form.value;
-      this.authService.login(value.email, value.password).then( () => {
+      console.log(value);
+      console.log(value.user);
+      console.log(value.password);
+      this.authService.login(value.user, value.password).then( value => {
+        console.log(value);
         this.router.navigate(['./admin']);
-      }).catch(() => {
+      }).catch(error => {
+        console.log(error)
         alert('no es valido');
       });
     }

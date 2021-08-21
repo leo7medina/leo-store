@@ -1,6 +1,6 @@
 import { PipeTransform, Pipe } from '@angular/core';
-import { CartService } from '../services/cart.service';
-import { Product } from '../interfaces/Product';
+import { CartService } from '../../services/cart.service';
+import { Product } from '../../interfaces/Product';
 
 @Pipe({
     name: 'cartrepeat'

@@ -1,56 +1,60 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
+import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { AuthService } from "src/app/services/auth.service";
 
 @Component({
-  selector: 'app-register-user',
-  templateUrl: './register-user.component.html',
-  styleUrls: ['./register-user.component.scss']
+  selector: "app-register-user",
+  templateUrl: "./register-user.component.html",
+  styleUrls: ["./register-user.component.scss"],
 })
 export class RegisterUserComponent implements OnInit {
-
   form: FormGroup;
-  
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private authService: AuthService
-  ) { 
+  ) {
     this.buildForm();
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   private buildForm() {
     this.form = this.formBuilder.group({
-      user: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(15)]]
+      user: ["", [Validators.required]],
+      email: ["", [Validators.required, Validators.email]],
+      password: [
+        "",
+        [
+          Validators.required,
+          Validators.minLength(8),
+          Validators.maxLength(15),
+        ],
+      ],
     });
   }
 
-  register(event){
+  register(event) {
     event.preventDefault();
     if (this.form.valid) {
       const value = this.form.value;
-      this.authService.createUser(value.email, value.password).then( () => {
-        this.router.navigate(['/login']);
+      this.authService.createUser(value.email, value.password).then(() => {
+        this.router.navigate(["/login"]);
       });
     }
   }
 
   get userField() {
-    return this.form.get('user');
+    return this.form.get("user");
   }
 
   get emailField() {
-    return this.form.get('email');
+    return this.form.get("email");
   }
 
   get passwordField() {
-    return this.form.get('password');
+    return this.form.get("password");
   }
-  
 }
