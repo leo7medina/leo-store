@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "lint:w": "eslint '**/*.{js,ts,tsx}' --quiet --fix",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "analyzer":  "webpack-bundle-analyzer dist/leo-store/stats.json"
   },
   "private": true,
   "dependencies": {
@@ -58,6 +59,7 @@
     "prettier": "^2.3.2",
     "protractor": "~7.0.0",
     "ts-node": "~10.1.0",
-    "typescript": "~4.3.5"
+    "typescript": "~4.3.5",
+    "webpack-bundle-analyzer": "^4.4.2"
   }
 }
