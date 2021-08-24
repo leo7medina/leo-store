@@ -3,6 +3,7 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import {LayoutComponent} from './components/layout/layout.component';
 import {AdminGuard} from './guard/admin.guard';
 import { PreloadService } from './services/preload.service'
+import { QuicklinkStrategy } from 'ngx-quicklink'
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -28,7 +29,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    preloadingStrategy: PreloadService
+    preloadingStrategy: QuicklinkStrategy,
+    paramsInheritanceStrategy: 'always'
   })],
   exports: [RouterModule]
 })

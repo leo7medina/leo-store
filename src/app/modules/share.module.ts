@@ -9,6 +9,7 @@ import {HighlightDirective} from '../common/directives/highlight.directive';
 import { MaterialModule } from './material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CartPipe } from '../common/pipes/cart.pipe';
+import { QuicklinkModule } from 'ngx-quicklink'
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CartPipe } from '../common/pipes/cart.pipe';
     CommonModule,
     RouterModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    QuicklinkModule
   ]
 })
 export class SharedModule { }
