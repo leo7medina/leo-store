@@ -29,6 +29,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
+    enableTracing: false,
     preloadingStrategy: QuicklinkStrategy,
     paramsInheritanceStrategy: 'always'
   })],
