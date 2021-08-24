@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import {LayoutComponent} from './components/layout/layout.component';
 import {AdminGuard} from './guard/admin.guard';
+import { PreloadService } from './services/preload.service'
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -10,8 +11,8 @@ const routes: Routes = [
     path: '',
     component: LayoutComponent,
     children: [
-      { path: 'home', loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule) },
-      { path: 'products', loadChildren: () => import('./modules/products/product.module').then(m => m.ProductModule) },
+      { path: 'home', loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule), data: { preload: true} },
+      { path: 'products', loadChildren: () => import('./modules/products/product.module').then(m => m.ProductModule), data: { preload: true} },
       { path: 'contact', loadChildren: () => import('./modules/contact/contact.module').then(m => m.ContactModule) },
       { path: 'order', loadChildren: () => import('./modules/order/order.module').then(m => m.OrderModule) },
       {
@@ -26,7 +27,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules})],
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy: PreloadService
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
