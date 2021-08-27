@@ -31,8 +31,9 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, {
     enableTracing: false,
     preloadingStrategy: QuicklinkStrategy,
-    paramsInheritanceStrategy: 'always'
-  })],
+    paramsInheritanceStrategy: 'always',
+    initialNavigation: 'enabled'
+})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
