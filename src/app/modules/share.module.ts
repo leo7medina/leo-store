@@ -9,7 +9,8 @@ import {HighlightDirective} from '../common/directives/highlight.directive';
 import { MaterialModule } from './material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CartPipe } from '../common/pipes/cart.pipe';
-import { QuicklinkModule } from 'ngx-quicklink'
+import { QuicklinkModule } from 'ngx-quicklink';
+import { FibonacciPipe} from '../common/pipes/fibonacci.pipe'
 
 @NgModule({
   declarations: [
@@ -18,20 +19,22 @@ import { QuicklinkModule } from 'ngx-quicklink'
     HighlightDirective,
     HeaderComponent,
     FooterComponent,
+    FibonacciPipe
   ],
   exports: [
     ExponentialPipe,
     CartPipe,
     HighlightDirective,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    FibonacciPipe
   ],
   imports: [
     CommonModule,
     RouterModule,
     MaterialModule,
     ReactiveFormsModule,
-    QuicklinkModule
+    QuicklinkModule,
   ]
 })
 export class SharedModule { }

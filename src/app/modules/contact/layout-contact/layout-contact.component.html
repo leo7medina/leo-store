@@ -1,5 +1,5 @@
-<p>layout-contact works!</p>
-<br>
+<p>value: {{ value$ | async }}</p>
+
 <app-list-contact title="Lista 1" [data]="salesList" (add)="addItem(salesList, $event)"></app-list-contact>
-<br>
+
 <app-list-contact title="Lista 2" [data]="bList" (add)="addItem(bList, $event)"></app-list-contact>

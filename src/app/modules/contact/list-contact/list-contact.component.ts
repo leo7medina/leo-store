@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
 import { Employee } from '../../../interfaces/Employee'
 
 @Component({
   selector: 'app-list-contact',
   templateUrl: './list-contact.component.html',
-  styleUrls: ['./list-contact.component.scss']
+  styleUrls: ['./list-contact.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ListContactComponent implements OnInit {
 
