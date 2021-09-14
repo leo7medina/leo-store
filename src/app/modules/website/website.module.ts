@@ -8,6 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { MaterialModule } from '../material.module'
 import { SharedModule } from '../share.module'
 import { CoreModule } from '../core.module'
+import {CommonModule} from "@angular/common";
+import {WebsiteRoutingModule} from './website-routing.module';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,11 @@ import { CoreModule } from '../core.module'
     OrderComponent
   ],
   imports: [
-    CoreModule,
-    FormsModule,
-    MaterialModule,
-    SharedModule,
-    ContactModule,
+    CommonModule,
+    WebsiteRoutingModule,
     ReactiveFormsModule,
+    MaterialModule,
+    SharedModule
   ]
 })
 export class WebsiteModule { }

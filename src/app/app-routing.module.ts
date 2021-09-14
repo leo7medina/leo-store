@@ -6,9 +6,9 @@ import { PreloadService } from './services/preload.service'
 import { QuicklinkStrategy } from 'ngx-quicklink'
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', loadChildren: () => import('./modules/website/website.module').then(m => m.WebsiteModule) },
   { path: 'login', loadChildren: () => import('./modules/session/session.module').then(m => m.SessionModule) },
-  { path: 'home', loadChildren: () => import('./modules/website/website.module').then(m => m.WebsiteModule) },
   /**{
     path: '',
     component: LayoutComponent,

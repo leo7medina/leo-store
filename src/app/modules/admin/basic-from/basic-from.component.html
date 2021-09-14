@@ -1,1 +1,131 @@
-<p>basic-from works!</p>
+<div class="row">
+
+  <div class="col-md-6">
+    <p>
+      Name: {{ nameField.value }}
+      <input type="text"
+             [class.is-valid]="isValidNameField"
+             [class.is-invalid]="isInValidNameField"
+             [formControl]="nameField" />
+      <button type="button" (click)="getNameValue()" [disabled]="nameField.invalid"> Get Value</button>
+      <!--<code>
+        <pre>{{nameField | json}}</pre>
+      </code>-->
+    </p>
+    <div class="messages" [class.active]="isInValidNameField">
+      <p style="color: red">
+        <strong *ngIf="nameField.touched && nameField.hasError('required')" >Este campo es requerido</strong>
+        <strong *ngIf="nameField.dirty && nameField.hasError('maxlength')" >Debe tener maximo 10 caracteres</strong>
+      </p>
+    </div>
+
+    <p>
+      Email: {{ emailField.value }}
+      <input type="email" [formControl]="emailField" />
+    </p>
+    <p>
+      Phone: {{ phoneField.value }}
+      <input type="tel" [formControl]="phoneField" />
+    </p>
+    <p>
+      Color: {{ colorField.value }}
+      <input type="color" [formControl]="colorField" />
+    </p>
+    <p>
+      Date: {{ dateField.value }}
+      <input type="date" [formControl]="dateField" />
+    </p>
+    <p>
+      DateTime: {{ dateTimeField.value }}
+      <input type="datetime" [formControl]="dateTimeField" />
+    </p>
+    <p>
+      DateTime Local: {{ dateTimeLocalField.value }}
+      <input type="datetime-local" [formControl]="dateTimeLocalField" />
+    </p>
+    <p>
+      Time: {{ timeField.value }}
+      <input type="time" [formControl]="timeField" />
+    </p>
+    <p>
+      Month: {{ monthField.value }}
+      <input type="month" [formControl]="monthField" />
+    </p>
+    <p>
+      Week: {{ weekField.value }}
+      <input type="week" [formControl]="weekField" />
+    </p>
+    <p>
+      Age: {{ ageField.value }}
+      <input type="number" [formControl]="ageField" />
+    </p>
+    <p>
+      File: {{ fileField.value }}
+      <input type="file" [formControl]="fileField" />
+    </p>
+    <p>
+      Image: {{ imageField.value }}
+      <input type="image" [formControl]="imageField" />
+    </p>
+
+    <p>
+      Url: {{ urlField.value }}
+      <input type="url" [formControl]="urlField" />
+    </p>
+    <p>
+      Range: {{ rangeField.value }}
+      <input type="range" [formControl]="rangeField" />
+    </p>
+    <p>
+      Description: {{ descriptionField.value }}
+      <textarea type="text" [formControl]="descriptionField"></textarea>
+    </p>
+
+    <p>
+      Password: {{ passwordField.value }}
+      <input type="password" [formControl]="passwordField" />
+    </p>
+    <p>
+      Search: {{ searchField.value }}
+      <input type="search" [formControl]="searchField" />
+    </p>
+  </div>
+
+  <div class="col-md-6">
+    <p>
+      Category: {{ categoryField.value }}
+      <select [formControl]="categoryField">
+        <option value="category-1"> Category 1</option>
+        <option value="category-2"> Category 2</option>
+        <option value="category-3"> Category 3</option>
+        <option value="category-4"> Category 4</option>
+      </select>
+    </p>
+    <p>
+      Tag: {{ tagField.value }}
+      <select [formControl]="tagField">
+        <option value="tag-1"> Tag 1</option>
+        <option value="tag-2"> Tag 2</option>
+        <option value="tag-3"> Tag 3</option>
+        <option value="tag-4"> Tag 4</option>
+      </select>
+    </p>
+    <p>
+      Check: {{ checkField.value }}
+      <input type="checkbox" [formControl]="checkField" />
+    </p>
+    <p>
+      Gender: {{ genderField.value }}
+      <label>
+        <input name="gender" type="radio" value="male" [formControl]="genderField" />
+        M
+      </label>
+      <label>
+        <input name="gender" type="radio" value="female" [formControl]="genderField" />
+        F
+      </label>
+    </p>
+  </div>
+
+</div>
+
