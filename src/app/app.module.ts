@@ -15,6 +15,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from 'src/environments/environment';
 import { QuicklinkModule } from 'ngx-quicklink';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { AngularFireMessagingModule } from '@angular/fire/messaging'
+import { AngularFirestoreModule } from '@angular/fire/firestore'
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireStorageModule,
+    AngularFireMessagingModule,
+    AngularFirestoreModule,
     QuicklinkModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,

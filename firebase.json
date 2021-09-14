@@ -1,14 +1,16 @@
 {
-    "hosting": {
-        "public": "dist/leo-store",
-        "ignore": [
-            "firebase.json",
-            "**/.*",
-            "**/node_modules/**"
-        ],
-        "rewirtes": [{
-            "source": "**",
-            "destination": "/index.html"
-        }]
-    }
+  "hosting": {
+    "public": "dist/leo-store",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
 }
