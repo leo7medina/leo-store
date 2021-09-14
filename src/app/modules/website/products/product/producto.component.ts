@@ -1,5 +1,5 @@
 import {Component, Output, Input, EventEmitter, OnChanges, SimpleChanges, OnInit, DoCheck, OnDestroy} from '@angular/core';
-import { Product } from '../../../interfaces/Product';
+import { Product } from '../../../../interfaces/Product';
 import { CartService } from 'src/app/services/cart.service';
 
 

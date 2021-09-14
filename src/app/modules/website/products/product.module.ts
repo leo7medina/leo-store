@@ -6,8 +6,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { ProductsComponent } from './products/products.component';
 
 import { ProductRoutingModule } from './product-routing.module';
-import { SharedModule } from '../share.module';
-import { MaterialModule } from '../material.module';
+import { SharedModule } from '../../share.module';
+import { MaterialModule } from '../../material.module';
 
 @NgModule({
   declarations: [

@@ -8,21 +8,19 @@ import { QuicklinkStrategy } from 'ngx-quicklink'
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', loadChildren: () => import('./modules/session/session.module').then(m => m.SessionModule) },
-  {
+  { path: 'home', loadChildren: () => import('./modules/website/website.module').then(m => m.WebsiteModule) },
+  /**{
     path: '',
     component: LayoutComponent,
     children: [
-      { path: 'home', loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule), data: { preload: true} },
-      { path: 'products', loadChildren: () => import('./modules/products/product.module').then(m => m.ProductModule), data: { preload: true} },
-      { path: 'contact', loadChildren: () => import('./modules/contact/contact.module').then(m => m.ContactModule) },
-      { path: 'order', loadChildren: () => import('./modules/order/order.module').then(m => m.OrderModule) },
-      {
-        path: 'demo',
-        canActivate: [AdminGuard],
-        loadChildren: () => import('./modules/demo/demo.module').then(m => m.DemoModule)
-      },
+      { path: 'home', loadChildren: () => import('./modules/website/website.module').then(m => m.WebsiteModule) },
+      /!*{ path: 'home', loadChildren: () => import('./modules/website/home/home.module').then(m => m.HomeModule), data: { preload: true} },
+      { path: 'products', loadChildren: () => import('./modules/website/products/product.module').then(m => m.ProductModule), data: { preload: true} },
+      { path: 'contact', loadChildren: () => import('./modules/website/contact/contact.module').then(m => m.ContactModule) },
+      { path: 'order', loadChildren: () => import('./modules/website/order/order.module').then(m => m.OrderModule) },
+      { path: 'demo', canActivate: [AdminGuard], loadChildren: () => import('./modules/website/demo/demo.module').then(m => m.DemoModule)  },*!/
     ]
-  },
+  },*/
   { path: 'admin',  canActivate: [AdminGuard], loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule) },
   { path: '**', loadChildren: () => import('./modules/page-not-found/page.module').then(m => m.PageModule) }
 ];

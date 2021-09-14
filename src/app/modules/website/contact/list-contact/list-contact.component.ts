@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
-import { Employee } from '../../../interfaces/Employee'
+import { Employee } from '../../../../interfaces/Employee'
 
 @Component({
   selector: 'app-list-contact',

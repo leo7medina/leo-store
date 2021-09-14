@@ -11,6 +11,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { MaterialModule } from '../material.module';
 import { FormProductComponent } from './form-product/form-product.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
+import { BasicFromComponent } from './basic-from/basic-from.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
     DashboardComponent,
     ProductListComponent,
     FormProductComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    BasicFromComponent
   ],
   imports: [
     CommonModule,
