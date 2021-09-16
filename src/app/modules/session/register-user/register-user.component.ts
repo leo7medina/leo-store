@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { AuthService } from "src/app/services/auth.service";
+import { MyValidators } from '../../../utils/validators'
 
 @Component({
   selector: "app-register-user",
@@ -9,6 +10,7 @@ import { AuthService } from "src/app/services/auth.service";
   styleUrls: ["./register-user.component.scss"],
 })
 export class RegisterUserComponent implements OnInit {
+
   form: FormGroup;
 
   constructor(
@@ -25,15 +27,21 @@ export class RegisterUserComponent implements OnInit {
     this.form = this.formBuilder.group({
       user: ["", [Validators.required]],
       email: ["", [Validators.required, Validators.email]],
-      password: [
-        "",
-        [
-          Validators.required,
-          Validators.minLength(8),
-          Validators.maxLength(15),
-        ],
-      ],
+      password: ["", this.getValidatorsPassword() ],
+      confirm: ['', this.getValidatorsPassword() ]
+    },
+    {
+      validators: MyValidators.matchingPasswordValidators
     });
+  }
+
+  getValidatorsPassword() {
+    return [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.maxLength(15),
+      MyValidators.validPassword
+    ]
   }
 
   register(event) {

@@ -11,7 +11,17 @@ input {
 .messages {
   opacity: 0;
   transition: all .5s ease-in;
+  color: red;
   &.active {
     opacity: 1;
   }
+}
+form {
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.mat-tab-group {
+  margin-bottom: 48px;
 }

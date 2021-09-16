@@ -27,10 +27,11 @@ import { BasicFromComponent } from './basic-from/basic-from.component';
   ],
   imports: [
     CommonModule,
+    MaterialModule,
     AdminRoutingModule,
     ReactiveFormsModule,
     LayoutModule,
-    MaterialModule
+
   ]
 })
 export class AdminModule { }

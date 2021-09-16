@@ -43,6 +43,16 @@
                             <mat-error *ngIf="passwordField.hasError('maxlength')">Máximo 15 caracteres</mat-error>
                         </div>
                     </div>
+                    <div class="col-xs">
+                      <mat-form-field>
+                        <input placeholder="Confirm" formControlName="confirm" matInput type="password">
+                      </mat-form-field>
+                      <div *ngIf="passwordField.errors && passwordField.dirty">
+                        <mat-error *ngIf="passwordField.hasError('required')">El campo es requerido</mat-error>
+                        <mat-error *ngIf="passwordField.hasError('minlength')">Mínimo 8 caracteres</mat-error>
+                        <mat-error *ngIf="passwordField.hasError('maxlength')">Máximo 15 caracteres</mat-error>
+                      </div>
+                    </div>
                 </div>
             </mat-card-content>
             <mat-card-actions>

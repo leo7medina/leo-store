@@ -1,131 +1,309 @@
-<div class="row">
+<div class='container'>
+  <mat-tab-group mat-align-tabs="start">
+    <mat-tab >
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+        Nativo
+      </ng-template>
+      <div class='mat-card-content'>
+        <ng-container *ngTemplateOutlet='contentNative'></ng-container>
+      </div>
 
-  <div class="col-md-6">
-    <p>
-      Name: {{ nameField.value }}
-      <input type="text"
-             [class.is-valid]="isValidNameField"
-             [class.is-invalid]="isInValidNameField"
-             [formControl]="nameField" />
-      <button type="button" (click)="getNameValue()" [disabled]="nameField.invalid"> Get Value</button>
-      <!--<code>
-        <pre>{{nameField | json}}</pre>
-      </code>-->
-    </p>
-    <div class="messages" [class.active]="isInValidNameField">
-      <p style="color: red">
-        <strong *ngIf="nameField.touched && nameField.hasError('required')" >Este campo es requerido</strong>
-        <strong *ngIf="nameField.dirty && nameField.hasError('maxlength')" >Debe tener maximo 10 caracteres</strong>
-      </p>
-    </div>
+    </mat-tab>
+    <mat-tab label="Material">
+      <div class='content'>
+        <ng-container *ngTemplateOutlet='contentMaterial'></ng-container>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
 
-    <p>
-      Email: {{ emailField.value }}
-      <input type="email" [formControl]="emailField" />
-    </p>
-    <p>
-      Phone: {{ phoneField.value }}
-      <input type="tel" [formControl]="phoneField" />
-    </p>
-    <p>
-      Color: {{ colorField.value }}
-      <input type="color" [formControl]="colorField" />
-    </p>
-    <p>
-      Date: {{ dateField.value }}
-      <input type="date" [formControl]="dateField" />
-    </p>
-    <p>
-      DateTime: {{ dateTimeField.value }}
-      <input type="datetime" [formControl]="dateTimeField" />
-    </p>
-    <p>
-      DateTime Local: {{ dateTimeLocalField.value }}
-      <input type="datetime-local" [formControl]="dateTimeLocalField" />
-    </p>
-    <p>
-      Time: {{ timeField.value }}
-      <input type="time" [formControl]="timeField" />
-    </p>
-    <p>
-      Month: {{ monthField.value }}
-      <input type="month" [formControl]="monthField" />
-    </p>
-    <p>
-      Week: {{ weekField.value }}
-      <input type="week" [formControl]="weekField" />
-    </p>
-    <p>
-      Age: {{ ageField.value }}
-      <input type="number" [formControl]="ageField" />
-    </p>
-    <p>
-      File: {{ fileField.value }}
-      <input type="file" [formControl]="fileField" />
-    </p>
-    <p>
-      Image: {{ imageField.value }}
-      <input type="image" [formControl]="imageField" />
-    </p>
-
-    <p>
-      Url: {{ urlField.value }}
-      <input type="url" [formControl]="urlField" />
-    </p>
-    <p>
-      Range: {{ rangeField.value }}
-      <input type="range" [formControl]="rangeField" />
-    </p>
-    <p>
-      Description: {{ descriptionField.value }}
-      <textarea type="text" [formControl]="descriptionField"></textarea>
-    </p>
-
-    <p>
-      Password: {{ passwordField.value }}
-      <input type="password" [formControl]="passwordField" />
-    </p>
-    <p>
-      Search: {{ searchField.value }}
-      <input type="search" [formControl]="searchField" />
-    </p>
-  </div>
-
-  <div class="col-md-6">
-    <p>
-      Category: {{ categoryField.value }}
-      <select [formControl]="categoryField">
-        <option value="category-1"> Category 1</option>
-        <option value="category-2"> Category 2</option>
-        <option value="category-3"> Category 3</option>
-        <option value="category-4"> Category 4</option>
-      </select>
-    </p>
-    <p>
-      Tag: {{ tagField.value }}
-      <select [formControl]="tagField">
-        <option value="tag-1"> Tag 1</option>
-        <option value="tag-2"> Tag 2</option>
-        <option value="tag-3"> Tag 3</option>
-        <option value="tag-4"> Tag 4</option>
-      </select>
-    </p>
-    <p>
-      Check: {{ checkField.value }}
-      <input type="checkbox" [formControl]="checkField" />
-    </p>
-    <p>
-      Gender: {{ genderField.value }}
-      <label>
-        <input name="gender" type="radio" value="male" [formControl]="genderField" />
-        M
-      </label>
-      <label>
-        <input name="gender" type="radio" value="female" [formControl]="genderField" />
-        F
-      </label>
-    </p>
-  </div>
 
 </div>
+
+
+<ng-template #contentNative>
+  <div class='row'>
+    <div class='col-md-12 col-lg-12'>
+      <form [formGroup]='form' (ngSubmit)='save($event)'>
+        <div class='row'>
+          <div class='col-md-6'>
+            <div formGroupName='fullName'>
+              <p>
+                <label>Name: {{ nameField.value }}</label>
+                <input type="text"
+                       [class.is-valid]="isValidNameField"
+                       [class.is-invalid]="isInValidNameField"
+                       [formControlName]="'name'"/>
+                <button type="button" (click)="getNameValue()" [disabled]="nameField.invalid"> Get Value </button>
+              </p>
+              <div class="messages" [class.active]="isInValidNameField">
+                <span>
+                  <strong *ngIf="nameField.hasError('required')">Este campo es requerido</strong>
+                  <strong *ngIf="nameField.dirty && nameField.hasError('maxlength')">Debe tener maximo 10 caracteres</strong>
+                  <strong *ngIf="nameField.hasError('pattern')">No debe tener caracteres numericos o especiales.</strong>
+                </span>
+              </div>
+              <p>
+                <label>Last: {{ lastField.value }}</label>
+                <input type="text"
+                       [class.is-valid]="isValidLastField"
+                       [class.is-invalid]="isInValidLastField"
+                       [formControlName]="'last'"/>
+              </p>
+              <div class="messages" [class.active]="isInValidLastField">
+                <span>
+                  <strong *ngIf="lastField.hasError('required')">Este campo es requerido</strong>
+                  <strong *ngIf="lastField.dirty && lastField.hasError('maxlength')">Debe tener maximo 10 caracteres</strong>
+                  <strong *ngIf="lastField.hasError('pattern')">No debe tener caracteres numericos o especiales.</strong>
+                </span>
+              </div>
+            </div>
+
+            <p>
+              <label>Email: {{ emailField.value }}</label>
+              <input type="email"
+                     [class.is-valid]="isInValidEmailField"
+                     [class.is-invalid]="isInValidEmailField"
+                     [formControlName]="'email'" />
+            </p>
+            <div class="messages" [class.active]="isInValidEmailField">
+                <span>
+                  <strong *ngIf="emailField.hasError('required')">Este campo es requerido</strong>
+                  <strong *ngIf="emailField.hasError('email')">Esto no es un email valido</strong>
+                </span>
+            </div>
+            <p>
+              <label>Phone: {{ phoneField.value }}</label>
+              <input type="tel"
+                     [class.is-valid]="isInValidPhoneField"
+                     [class.is-invalid]="isInValidPhoneField"
+                     [formControlName]="'phone'" />
+            </p>
+            <div class="messages" [class.active]="isInValidPhoneField">
+                <span>
+                  <strong *ngIf="phoneField.hasError('required')">Este campo es requerido</strong>
+                </span>
+            </div>
+            <p>
+              <label>Color: {{ colorField.value }}</label>
+              <input type="color" [formControlName]="'color'" />
+            </p>
+            <p>
+              <label>Date: {{ dateField.value }}</label>
+              <input type="date" [formControlName]="'date'" />
+            </p>
+            <p>
+              <label>DateTime Local: {{ dateTimeLocalField.value }}</label>
+              <input type="datetime-local" [formControlName]="'dateTimeLocal'" />
+            </p>
+            <p>
+              <label>Time: {{ timeField.value }}</label>
+              <input type="time" [formControlName]="'time'" />
+            </p>
+            <p>
+              <label>Month: {{ monthField.value }}</label>
+              <input type="month" [formControlName]="'month'" />
+            </p>
+            <p>
+              <label>Week: {{ weekField.value }}</label>
+              <input type="week" [formControlName]="'week'" />
+            </p>
+            <p>
+              <label>Age: {{ ageField.value }}</label>
+              <input type="number"
+                     [class.is-valid]="isInValidAgeField"
+                     [class.is-invalid]="isInValidAgeField"
+                     [formControlName]="'age'" />
+            </p>
+            <div class="messages" [class.active]="isInValidAgeField">
+                <span>
+                  <strong *ngIf="ageField.hasError('required')">Este campo es requerido</strong>
+                  <strong *ngIf="ageField.hasError('min')">Debe ser mayor de edad</strong>
+                  <strong *ngIf="ageField.hasError('max')">Debe ser menor de 100 años</strong>
+                </span>
+            </div>
+          </div>
+          <div class='col-md-6'>
+            <p>
+              <label>File: {{ fileField.value }}</label>
+              <input type="file" [formControlName]="'file'" />
+            </p>
+            <p>
+              <label>Image: {{ imageField.value }}</label>
+              <input type="image" [formControlName]="'image'" />
+            </p>
+
+            <p>
+              <label>Url: {{ urlField.value }}</label>
+              <input type="url" [formControlName]="'url'" />
+            </p>
+            <p>
+              <label>Range: {{ rangeField.value }}</label>
+              <input type="range" [formControlName]="'range'" />
+            </p>
+            <p>
+              <label>Description: {{ descriptionField.value }}</label>
+              <textarea type="text" [formControlName]="'description'"></textarea>
+            </p>
+
+            <p>
+              <label>Password: {{ passwordField.value }}</label>
+              <input type="password" [formControlName]="'password'" />
+            </p>
+            <p>
+              <label>Search: {{ searchField.value }}</label>
+              <input type="search" [formControlName]="'search'" />
+            </p>
+            <p>
+              <label>Category: {{ categoryField.value }}</label>
+              <select [formControlName]="'category'">
+                <option value="category-1"> Category 1</option>
+                <option value="category-2"> Category 2</option>
+                <option value="category-3"> Category 3</option>
+                <option value="category-4"> Category 4</option>
+              </select>
+            </p>
+            <p>
+              <label>Tag: {{ tagField.value }}</label>
+              <select [formControlName]="'tag'">
+                <option value="tag-1"> Tag 1</option>
+                <option value="tag-2"> Tag 2</option>
+                <option value="tag-3"> Tag 3</option>
+                <option value="tag-4"> Tag 4</option>
+              </select>
+            </p>
+            <p>
+              <label>Check: {{ checkField.value }}</label>
+              <input type="checkbox" [formControlName]="'check'" />
+            </p>
+            <p>
+              <label>Gender: {{ genderField.value }}</label>
+              <label>
+                <input name="gender" type="radio" value="male" [formControlName]="'gender'" />
+                M
+              </label>
+              <label>
+                <input name="gender" type="radio" value="female" [formControlName]="'gender'" />
+                F
+              </label>
+            </p>
+          </div>
+        </div>
+        <hr>
+        <div class='row'>
+          <button type='submit' [disabled]='form.invalid'>Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #contentMaterial>
+  <div class='row'>
+    <div lass='col-md-12 col-lg-12'>
+      <form [formGroup]='form' (ngSubmit)='save($event)'>
+        <div class='row'>
+          <div class='col-md-6'>
+            <!--<mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Favorite food</mat-label>
+              <input matInput placeholder="Ex. Pizza" value="Sushi">
+            </mat-form-field>-->
+            <div formGroupName='fullName'>
+              <mat-form-field  appearance="fill">
+                <mat-label>Name: {{ nameField.value }}</mat-label>
+                <input type='text' matInput [formControlName]="'name'">
+              </mat-form-field>
+              <div class="messages" [class.active]="isInValidNameField">
+                <mat-error *ngIf="nameField.hasError('required')">Este campo es requerido</mat-error>
+                <mat-error *ngIf="nameField.dirty && nameField.hasError('maxlength')">Debe tener maximo 10 caracteres</mat-error>
+                <mat-error *ngIf="nameField.hasError('pattern')">No debe tener caracteres numericos o especiales.</mat-error>
+              </div>
+
+              <mat-form-field  appearance="fill">
+                <mat-label>Last: {{ lastField.value }}</mat-label>
+                <input type='text' matInput [formControlName]="'last'">
+              </mat-form-field>
+              <div class="messages" [class.active]="isInValidLastField">
+                  <mat-error *ngIf="lastField.hasError('required')">Este campo es requerido</mat-error>
+                  <mat-error *ngIf="lastField.dirty && lastField.hasError('maxlength')">Debe tener maximo 10 caracteres</mat-error>
+                  <mat-error *ngIf="lastField.hasError('pattern')">No debe tener caracteres numericos o especiales.</mat-error>
+              </div>
+            </div>
+
+            <mat-form-field  appearance='legacy'>
+              <mat-label>Email: {{ emailField.value }}</mat-label>
+              <input type='email' matInput [formControlName]="'email'">
+            </mat-form-field>
+            <div class="messages" [class.active]="isInValidEmailField">
+              <mat-error *ngIf="emailField.hasError('required')">Este campo es requerido</mat-error>
+              <mat-error *ngIf="emailField.hasError('email')">Esto no es un email valido</mat-error>
+            </div>
+
+            <mat-form-field  appearance="fill">
+              <mat-label>Phone: {{ phoneField.value }}</mat-label>
+              <input type='tel' matInput [formControlName]="'phone'">
+            </mat-form-field>
+            <div class="messages" [class.active]="isInValidPhoneField">
+                <span>
+                  <strong *ngIf="phoneField.hasError('required')">Este campo es requerido</strong>
+                </span>
+            </div>
+
+            <mat-form-field  appearance="fill">
+              <mat-label>Color: {{ colorField.value }}</mat-label>
+              <input text='color' matInput [formControlName]="'color'">
+            </mat-form-field>
+
+            <mat-form-field  appearance="fill">
+              <mat-label>Date: {{ dateField.value }}</mat-label>
+              <input type='date' matInput [formControlName]="'date'">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Date</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName='date'>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>-
+
+            <mat-form-field appearance="fill">
+              <mat-label>Date Time</mat-label>
+              <input matInput matDatepickerInput [matDatepicker]="picker2" formControlName='dateTimeLocal'>
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2 matDatepickerInput></mat-datepicker>
+            </mat-form-field>-
+
+            <p>
+              <label>Time: {{ timeField.value }}</label>
+              <input type="time" [formControlName]="'time'" />
+            </p>
+            <p>
+              <label>Month: {{ monthField.value }}</label>
+              <input type="month" [formControlName]="'month'" />
+            </p>
+            <p>
+              <label>Week: {{ weekField.value }}</label>
+              <input type="week" [formControlName]="'week'" />
+            </p>
+            <mat-form-field  appearance="fill">
+              <mat-label>Age: {{ ageField.value }}</mat-label>
+              <input type='number' matInput  [formControlName]="'age'">
+            </mat-form-field>
+            <div class="messages" [class.active]="isInValidAgeField">
+                <span>
+                  <strong *ngIf="ageField.hasError('required')">Este campo es requerido</strong>
+                  <strong *ngIf="ageField.hasError('min')">Debe ser mayor de edad</strong>
+                  <strong *ngIf="ageField.hasError('max')">Debe ser menor de 100 años</strong>
+                </span>
+            </div>
+          </div>
+          <div class='col-md-6'></div>
+        </div>
+        <hr>
+        <div class='row'>
+          <button type='submit' [disabled]='form.invalid'>Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ng-template>
 
