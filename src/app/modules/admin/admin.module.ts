@@ -12,6 +12,7 @@ import { MaterialModule } from '../material.module';
 import { FormProductComponent } from './form-product/form-product.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { BasicFromComponent } from './basic-from/basic-from.component';
+import { CategoryComponent } from './category/category.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { BasicFromComponent } from './basic-from/basic-from.component';
     ProductListComponent,
     FormProductComponent,
     ProductEditComponent,
-    BasicFromComponent
+    BasicFromComponent,
+    CategoryComponent
   ],
   imports: [
     CommonModule,
