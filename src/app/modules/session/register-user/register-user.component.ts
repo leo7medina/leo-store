@@ -12,6 +12,7 @@ import { MyValidators } from '../../../utils/validators'
 export class RegisterUserComponent implements OnInit {
 
   form: FormGroup;
+  showCompany = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -21,26 +22,45 @@ export class RegisterUserComponent implements OnInit {
     this.buildForm();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.form.valueChanges.subscribe(value => console.log(value));
+    this.passwordField.valueChanges.subscribe(value => {
+      console.log(this.form);
+      console.log(this.form.get('password'));
+      console.log(value);
+    });
+  }
 
   private buildForm() {
     this.form = this.formBuilder.group({
       user: ["", [Validators.required]],
       email: ["", [Validators.required, Validators.email]],
-      password: ["", this.getValidatorsPassword() ],
-      confirm: ['', this.getValidatorsPassword() ]
+      password: ["", [Validators.required,
+        Validators.minLength(8),
+        Validators.maxLength(15),
+        MyValidators.validPassword] ],
+      confirm: ['', Validators.required ],
+      type: ['', Validators.required],
+      companyName: ['', Validators.required]
     },
     {
       validators: MyValidators.matchingPasswordValidators
     });
+    this.typeField.valueChanges.subscribe(value => {
+      if (value === 'company') {
+        this.companyNameField.setValidators([Validators.required]);
+        this.showCompany = true;
+      } else {
+        this.companyNameField.setValidators(null);
+        this.showCompany = false;
+      }
+      this.companyNameField.updateValueAndValidity();
+    })
   }
 
   getValidatorsPassword() {
     return [
-      Validators.required,
-      Validators.minLength(8),
-      Validators.maxLength(15),
-      MyValidators.validPassword
+
     ]
   }
 
@@ -64,5 +84,15 @@ export class RegisterUserComponent implements OnInit {
 
   get passwordField() {
     return this.form.get("password");
+  }
+
+  get confirmField() {
+    return this.form.get('confirm');
+  }
+  get typeField() {
+    return this.form.get('type');
+  }
+  get companyNameField() {
+    return this.form.get('companyName');
   }
 }

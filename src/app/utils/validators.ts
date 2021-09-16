@@ -12,7 +12,8 @@ export class MyValidators {
 
     static validPassword(control: AbstractControl) {
       const value = control.value;
-      if (this.containsNumber(value)) {
+      const listValue = value.split('');
+      if (!listValue.find(x => !isNaN(parseInt(x, 10)))) {
         return {invalid_password: true};
       }
       return null;
@@ -25,11 +26,11 @@ export class MyValidators {
       return null;
     }
 
-    static containsNumber(value: string) {
-      return value.split('').find(x => this.isNumber(x));
-    }
+    /*function containsNumber(value: string) {
+      return value.split('').find(x => !isNaN(parseInt(value, 10)));
+    }*/
 
-    static isNumber(value: string) {
+    /*function isNumber(value: string) {
       return !isNaN(parseInt(value, 10));
-    }
+    }*/
 }
