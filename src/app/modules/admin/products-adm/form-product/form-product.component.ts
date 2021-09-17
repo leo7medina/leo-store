@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router} from '@angular/router';
 import { ProductsService } from 'src/app/services/product.service';
-import { MyValidators} from './../../../utils/validators';
+import { MyValidators} from '../../../../utils/validators';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -22,7 +22,7 @@ export class FormProductComponent implements OnInit {
     private router: Router,
     private productService: ProductsService,
     private angularFireStorage: AngularFireStorage
-  ) { 
+  ) {
     this.buildForm();
   }
 
@@ -30,7 +30,7 @@ export class FormProductComponent implements OnInit {
   }
 
   saveProduct(event) {
-    event.preventDefault();//evita recarga la pagina 
+    event.preventDefault();//evita recarga la pagina
     if (this.form.valid) {
       this.productService.createProduct(this.form.value).subscribe(product => {
         console.log(product);

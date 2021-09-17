@@ -1,31 +1,24 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { AdminRoutingModule } from './admin-routing.module';
-import { ProductFormComponent } from './product-form/product-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { NavComponent } from './nav/nav.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { TableComponent } from './table/table.component';
-import { ProductListComponent } from './product-list/product-list.component';
-import { MaterialModule } from '../material.module';
-import { FormProductComponent } from './form-product/form-product.component';
-import { ProductEditComponent } from './product-edit/product-edit.component';
-import { BasicFromComponent } from './basic-from/basic-from.component';
-import { CategoryComponent } from './category/category.component';
-
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {AdminRoutingModule} from './admin-routing.module';
+import {ProductFormExampleComponent} from './products-adm/product-form-example/product-form-example.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {NavComponent} from './nav/nav.component';
+import {LayoutModule} from '@angular/cdk/layout';
+import {DashboardComponent} from './dashboard/dashboard.component';
+import {TableComponent} from './table/table.component';
+import {MaterialModule} from '../material.module';
+import {BasicFromComponent} from './basic-from/basic-from.component';
+import {CategoriesModule} from './categories/categories.module';
+import {ProductsAdmModule} from './products-adm/products-adm.module';
 
 @NgModule({
   declarations: [
-    ProductFormComponent,
+    ProductFormExampleComponent,
     NavComponent,
     TableComponent,
     DashboardComponent,
-    ProductListComponent,
-    FormProductComponent,
-    ProductEditComponent,
     BasicFromComponent,
-    CategoryComponent
   ],
   imports: [
     CommonModule,
@@ -33,6 +26,8 @@ import { CategoryComponent } from './category/category.component';
     AdminRoutingModule,
     ReactiveFormsModule,
     LayoutModule,
+    CategoriesModule,
+    ProductsAdmModule
 
   ]
 })

@@ -3,10 +3,10 @@ import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-product-form',
-  templateUrl: './product-form.component.html',
-  styleUrls: ['./product-form.component.scss']
+  templateUrl: './product-form-example.component.html',
+  styleUrls: ['./product-form-example.component.scss']
 })
-export class ProductFormComponent {
+export class ProductFormExampleComponent {
   addressForm = this.fb.group({
     company: null,
     firstName: [null, Validators.required],

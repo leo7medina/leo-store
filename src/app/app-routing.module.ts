@@ -15,7 +15,7 @@ const routes: Routes = [
     children: [
       { path: 'home', loadChildren: () => import('./modules/website/website.module').then(m => m.WebsiteModule) },
       /!*{ path: 'home', loadChildren: () => import('./modules/website/home/home.module').then(m => m.HomeModule), data: { preload: true} },
-      { path: 'products', loadChildren: () => import('./modules/website/products/product.module').then(m => m.ProductModule), data: { preload: true} },
+      { path: 'products-adm', loadChildren: () => import('./modules/website/products-adm/product.module').then(m => m.ProductModule), data: { preload: true} },
       { path: 'contact', loadChildren: () => import('./modules/website/contact/contact.module').then(m => m.ContactModule) },
       { path: 'order', loadChildren: () => import('./modules/website/order/order.module').then(m => m.OrderModule) },
       { path: 'demo', canActivate: [AdminGuard], loadChildren: () => import('./modules/website/demo/demo.module').then(m => m.DemoModule)  },*!/

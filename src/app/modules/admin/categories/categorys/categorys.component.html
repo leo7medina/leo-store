@@ -1,0 +1,58 @@
+
+<!--<div class="container">
+  <div class="row">-->
+    <a mat-raised-button routerLink="create">Crear categoria</a>
+<!--  </div>
+  <br>
+  <div class="row">
+    <div class="col-m-12">-->
+
+      <table #tableCategory mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="indexNumber">
+          <th mat-header-cell *matHeaderCellDef style="width: 10%"> No. </th>
+          <td mat-cell class="center" *matCellDef="let category; let i = index" style="width: 10%"> {{ (paginator.pageSize * paginator.pageIndex) + (i + 1)}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef style="width: 30%"> Name </th>
+          <td mat-cell *matCellDef="let category" style="width: 30%"> {{category.name}} </td>
+          <!--<mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+          <mat-cell *matCellDef="let category"> {{category.name}} </mat-cell>-->
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="image">
+          <th mat-header-cell *matHeaderCellDef style="width: 30%"> Image </th>
+          <td mat-cell class="center" *matCellDef="let category" style="width: 30%">
+            <img src="{{category.image }}" alt="{{category.image}}" (error)="updateUrl($event, category)" style="width: 25%; height: 25%"/>
+          </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef style="width: 30%"> Actions </th>
+          <td mat-cell class="center" *matCellDef="let category" style="width: 30%; text-align: center">
+            <a mat-raised-button [routerLink]="['edit', category._id]" class="mr-2">Editar</a>
+            <button mat-raised-button color="warn"> Eliminar</button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]"
+                     showFirstLastButtons
+                     aria-label="Select page of periodic elements">
+      </mat-paginator>
+
+ <!--   </div>
+  </div>
+
+</div>-->

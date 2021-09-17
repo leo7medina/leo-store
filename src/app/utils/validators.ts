@@ -1,4 +1,5 @@
 import { AbstractControl} from '@angular/forms';
+import {map} from 'rxjs/operators';
 
 export class MyValidators {
 
@@ -24,6 +25,22 @@ export class MyValidators {
         return { notMatchPassword: true };
       }
       return null;
+    }
+
+    static validateCategory(service) {
+      return (control: AbstractControl) => {
+        const value = control.value;
+        return service.checkCategory(value)
+          .pipe(
+            map( (response: any) => {
+              const isAvailable = response.isAbailable;
+              if (isAvailable) {
+                return {not_available: true};
+              }
+              return null;
+            })
+          );
+      }
     }
 
     /*function containsNumber(value: string) {

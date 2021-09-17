@@ -29,7 +29,7 @@ export class BasicFromComponent implements OnInit {
     check: new FormControl(),
     password: new FormControl(),
     search: new FormControl(),
-    category: new FormControl(),
+    category-form: new FormControl(),
     tag: new FormControl(),
     gender: new FormControl('')
   });*/
