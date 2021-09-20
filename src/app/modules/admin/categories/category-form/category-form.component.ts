@@ -29,7 +29,8 @@ export class CategoryFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  save() {
+  save($event) {
+    $event.preventDefault();
     if (this.form.valid) {
       this.createCategory();
     } else {
@@ -68,7 +69,7 @@ export class CategoryFormComponent implements OnInit {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(4), MyValidators.validateCategory(this.categoriesService)]],
       image: ['', Validators.required],
-    })
+    });
   }
 
   get nameField() {

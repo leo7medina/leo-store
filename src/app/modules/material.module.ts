@@ -47,7 +47,7 @@ import { MatTooltipModule } from '@angular/material/tooltip'
 @NgModule({
     declarations: [],
     imports: [
-        CommonModule,
+      CommonModule,
       MatAutocompleteModule,
       MatBadgeModule,
       MatBottomSheetModule,
@@ -84,7 +84,7 @@ import { MatTooltipModule } from '@angular/material/tooltip'
       MatTooltipModule,
       MatTreeModule,
       OverlayModule,
-      PortalModule,
+      //PortalModule,
       ScrollingModule,
     ],
     exports: [
@@ -124,7 +124,7 @@ import { MatTooltipModule } from '@angular/material/tooltip'
       MatTooltipModule,
       MatTreeModule,
       OverlayModule,
-      PortalModule,
+      //PortalModule,
       ScrollingModule,
     ]
 })

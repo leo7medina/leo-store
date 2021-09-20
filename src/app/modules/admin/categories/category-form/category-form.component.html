@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="save()">
+<form [formGroup]="form" (ngSubmit)="save($event)">
   <mat-card>
     <mat-card-header>
       <mat-card-title>Categoría</mat-card-title>
@@ -9,27 +9,32 @@
           <mat-form-field>
             <mat-label>Nombre</mat-label>
             <input placeholder="Nombre" formControlName="name" matInput type="text">
-            <div class="messages" *ngIf="nameField.touched && nameField.invalid">
-              <mat-error *ngIf="nameField.hasError('required')">  El campo es requerido </mat-error>
-              <mat-error *ngIf="nameField.hasError('minlegth')">  Minimo debe tener 4 caracteres </mat-error>
-              <mat-error *ngIf="nameField.hasError('not_available')">  Este nombre ya lo tiene otra categoria </mat-error>
-            </div>
           </mat-form-field>
+          <div class="messages" *ngIf="nameField.touched && nameField.invalid">
+            <mat-error *ngIf="nameField.hasError('required')">  El campo es requerido </mat-error>
+            <mat-error *ngIf="nameField.hasError('minlegth')">  Minimo debe tener 4 caracteres </mat-error>
+            <mat-error *ngIf="nameField.hasError('not_available')">  Este nombre ya lo tiene otra categoria </mat-error>
+          </div>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <mat-form-field>
-            <!--<input placeholder="Imagen" formControlName="image" matInput type="text">
+            <!--<img *ngIf="image$ | async as image" [src]="image" alt="">-->
+            <input type="file" matInput (change)="uploadFile($event)">
+          </mat-form-field>
+          <div class="messages" *ngIf="imageField.touched && imageField.dirty">
+            <mat-error *ngIf="imageField.hasError('required')">  El campo es requerido </mat-error>
+          </div>
+          <!--<mat-form-field>
+            &lt;!&ndash;<input placeholder="Imagen" formControlName="image" matInput type="text">
             <div class="messages" *ngIf="imageField.touched && imageField.dirty">
               <mat-error *ngIf="imageField.hasError('required')">  El campo es requerido   </mat-error>
-            </div>-->
+            </div>&ndash;&gt;
             <img *ngIf="(image$ | async) as image" [src]="image">
             <input type="file" (change)="uploadFile($event)">
-            <div class="messages" *ngIf="imageField.touched && imageField.invalid">
-              <mat-error *ngIf="imageField.hasError('required')">  El campo es requerido </mat-error>
-            </div>
-          </mat-form-field>
+
+          </mat-form-field>-->
         </div>
       </div>
     </mat-card-content>

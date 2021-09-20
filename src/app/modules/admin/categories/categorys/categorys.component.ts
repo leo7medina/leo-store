@@ -32,15 +32,17 @@ export class CategorysComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    if (this.paginator) {
+    /*if (this.paginator) {
       this.dataSource.paginator = this.paginator
-    }
-
+    }*/
   }
 
   getListCategories() {
     this.categoriesService.getAllCategories().subscribe(response => {
       this.dataSource.data = response;
+      if (this.paginator) {
+        this.dataSource.paginator = this.paginator
+      }
       //this.listCategories = response;
     });
   }
