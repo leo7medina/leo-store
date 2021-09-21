@@ -20,6 +20,7 @@
       <div class="row">
         <div class="col-md-12">
           <mat-form-field>
+            <img *ngIf="imageField.value" [src]="imageField.value" alt="">
             <!--<img *ngIf="image$ | async as image" [src]="image" alt="">-->
             <input type="file" matInput (change)="uploadFile($event)">
           </mat-form-field>
@@ -39,7 +40,10 @@
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Guardar categoria</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+        <span *ngIf="categoryId">Actualizar categoria</span>
+        <span *ngIf="!categoryId">Guardar categoria</span>
+      </button>
     </mat-card-actions>
   </mat-card>
 </form>
