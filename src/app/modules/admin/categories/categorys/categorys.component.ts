@@ -6,7 +6,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
-  selector: 'app-category',
+  selector: 'app-categorys',
   templateUrl: './categorys.component.html',
   styleUrls: ['./categorys.component.scss']
 })

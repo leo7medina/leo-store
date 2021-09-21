@@ -12,7 +12,7 @@
           </mat-form-field>
           <div class="messages" *ngIf="nameField.touched && nameField.invalid">
             <mat-error *ngIf="nameField.hasError('required')">  El campo es requerido </mat-error>
-            <mat-error *ngIf="nameField.hasError('minlegth')">  Minimo debe tener 4 caracteres </mat-error>
+            <mat-error *ngIf="nameField.hasError('minlength')">  Minimo debe tener 4 caracteres </mat-error>
             <mat-error *ngIf="nameField.hasError('not_available')">  Este nombre ya lo tiene otra categoria </mat-error>
           </div>
         </div>
@@ -41,8 +41,8 @@
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
-        <span *ngIf="categoryId">Actualizar categoria</span>
-        <span *ngIf="!categoryId">Guardar categoria</span>
+        <span *ngIf="!isNew">Actualizar categoria</span>
+        <span *ngIf="isNew">Guardar categoria</span>
       </button>
     </mat-card-actions>
   </mat-card>
