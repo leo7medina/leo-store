@@ -5,7 +5,7 @@ import { ProductFormExampleComponent } from './products-adm/product-form-example
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TableComponent } from './table/table.component';
 import { ProductListComponent } from './products-adm/product-list/product-list.component';
-import { FormProductComponent } from './products-adm/form-product/form-product.component';
+import { ProductCreateComponent } from './products-adm/product-create/product-create.component';
 import { ProductEditComponent } from './products-adm/product-edit/product-edit.component';
 import { BasicFromComponent } from './basic-from/basic-from.component'
 import {CategorysComponent} from './categories/categorys/categorys.component';
@@ -20,7 +20,7 @@ const routes: Routes = [
       { path: '', component: DashboardComponent },
       { path: 'table', component: TableComponent },
       /**{ path: 'product-list', component: ProductListComponent },
-      { path: 'product/create', component: FormProductComponent },
+      { path: 'product/create', component: ProductCreateComponent },
       { path: 'product/edit/:id', component: ProductEditComponent },*/
       { path: 'basic-form', component: BasicFromComponent },
       { path: 'categories', loadChildren: () => import('./categories/categories.module').then(m => m.CategoriesModule) },

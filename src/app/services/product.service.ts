@@ -10,7 +10,8 @@ import { environment } from './../../environments/environment'
 })
 export class ProductsService {
 
-  urlBase = environment.url_api;
+  //urlBase = environment.url_api;
+  urlBase = environment.url_api2;
 
   constructor(
     private http: HttpClient

@@ -5,12 +5,12 @@ import {CommonModule} from '@angular/common';
 import {ProductsAdmRoutingModule} from './products-adm.routing.module';
 import {MaterialModule} from '../../material.module';
 import {ReactiveFormsModule} from '@angular/forms';
-import {FormProductComponent} from './form-product/form-product.component';
+import {ProductCreateComponent} from './product-create/product-create.component';
 
 @NgModule({
   declarations: [
     ProductListComponent,
-    FormProductComponent,
+    ProductCreateComponent,
     ProductEditComponent
   ],
   imports: [

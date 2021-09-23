@@ -7,15 +7,12 @@
             <div class="row">
                 <div class="col-xs">
                     <mat-form-field>
-                        <input placeholder="Id" formControlName="id" matInput type="text">
+                        <input placeholder="Name" formControlName="name" matInput type="text">
                     </mat-form-field>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs">
-                    <mat-form-field>
-                        <input placeholder="Title" formControlName="title" matInput type="text">
-                    </mat-form-field>
+                  <div *ngIf="nameField.errors && nameField.dirty">
+                    <p *ngIf="nameField.hasError('minlength')">Debe tener minimo 4 caracteres</p>
+                    <p *ngIf="nameField.hasError('required')">Este campo es requerido</p>
+                  </div>
                 </div>
             </div>
             <div class="row">
@@ -34,15 +31,32 @@
                     <mat-form-field>
                         <textarea placeholder="Descripcion" formControlName="description" matInput type="text"></textarea>
                     </mat-form-field>
+                    <div *ngIf="descriptionField.errors && descriptionField.dirty">
+                      <p *ngIf="descriptionField.hasError('minlength')">Debe tener minimo 10 caracteres</p>
+                      <p *ngIf="descriptionField.hasError('required')">Este campo es requerido</p>
+                    </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs">
                     <mat-form-field>
                         <img *ngIf="image$ | async as image" [src]="image" alt="">
-                        <input type="file" (change)="uploadFile($event)">
+                        <input type="file" (change)="uploadFile($event)" matInput>
                     </mat-form-field>
                 </div>
+            </div>
+            <div class="row">
+              <div class="col-xs">
+                <mat-form-field>
+                  <mat-label>Categories</mat-label>
+                  <mat-select formControlName='category_id'>
+                    <mat-option *ngFor='let category of categories' [value]='category._id'>{{category.name}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <div *ngIf="categoryIdField.errors && categoryIdField.dirty">
+                  <p *ngIf="categoryIdField.hasError('required')">Este campo es requerido</p>
+                </div>
+              </div>
             </div>
         </mat-card-content>
         <mat-card-actions>

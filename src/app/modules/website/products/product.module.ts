@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ProductComponent } from './product/producto.component';
+import { ProductComponent } from './product/product.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductsComponent } from './products/products.component';
 

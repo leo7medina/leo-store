@@ -10,7 +10,7 @@ import { Product } from 'src/app/interfaces/Product';
 export class ProductListComponent implements OnInit {
 
   listProducts: Product[] = [];
-  displayedColumns: string[] = ['id', 'title', 'price', 'actions'];
+  displayedColumns: string[] = ['id', 'name', 'image', 'price', 'actions'];
   constructor(
     private productService: ProductsService
   ) { }
@@ -27,7 +27,7 @@ export class ProductListComponent implements OnInit {
       }
     });
   }
-  
+
   deleteProduct(id: string, index: number) {
     this.productService.deleteProduct(id).subscribe(response => {
       console.log(response);

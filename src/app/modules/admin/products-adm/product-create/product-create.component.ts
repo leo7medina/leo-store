@@ -6,27 +6,43 @@ import { MyValidators} from '../../../../utils/validators';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { CategoriesService } from '../../../../services/categories.service'
+import { response } from 'express'
+import { Category } from '../../../../interfaces/Category'
 
 @Component({
   selector: 'app-form-product',
-  templateUrl: './form-product.component.html',
-  styleUrls: ['./form-product.component.scss']
+  templateUrl: './product-create.component.html',
+  styleUrls: ['./product-create.component.scss']
 })
-export class FormProductComponent implements OnInit {
+export class ProductCreateComponent implements OnInit {
 
   form: FormGroup;
   image$: Observable<any>;
+  categories: Category[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private productService: ProductsService,
+    private categoriesService: CategoriesService,
     private angularFireStorage: AngularFireStorage
   ) {
     this.buildForm();
   }
 
   ngOnInit(): void {
+    this.gerCategories();
+  }
+
+  private buildForm() {
+    this.form = this.formBuilder.group({
+      name: ['', [Validators.required, Validators.minLength(4)]],
+      price: ['', [Validators.required, MyValidators.isPriceValue]],
+      image: ['', Validators.required],
+      category_id: ['', Validators.required],
+      description: ['', [Validators.required, Validators.minLength(10)]]
+    });
   }
 
   saveProduct(event) {
@@ -38,20 +54,6 @@ export class FormProductComponent implements OnInit {
       });
     }
     console.log(this.form);
-  }
-
-  private buildForm() {
-    this.form = this.formBuilder.group({
-      id: ['', [Validators.required]],
-      title: ['', [Validators.required]],
-      price: ['', [Validators.required, MyValidators.isPriceValue]],
-      image: [''],
-      description: ['', [Validators.required]]
-    });
-  }
-
-  get priceField(){
-    return this.form.get('price');
   }
 
   uploadFile(event) {
@@ -70,4 +72,29 @@ export class FormProductComponent implements OnInit {
     ).subscribe();
   }
 
+  private gerCategories() {
+    this.categoriesService.getAllCategories().subscribe(response => {
+      this.categories = response;
+    });
+  }
+
+  get nameField(){
+    return this.form.get('name');
+  }
+
+  get priceField(){
+    return this.form.get('price');
+  }
+
+  get imageField(){
+    return this.form.get('image');
+  }
+
+  get descriptionField(){
+    return this.form.get('description');
+  }
+
+  get categoryIdField(){
+    return this.form.get('category_id');
+  }
 }
