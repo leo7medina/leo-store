@@ -6,12 +6,14 @@ import {ProductsAdmRoutingModule} from './products-adm.routing.module';
 import {MaterialModule} from '../../material.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {ProductCreateComponent} from './product-create/product-create.component';
+import { StepperComponent } from '../../../components/stepper/stepper.component'
 
 @NgModule({
   declarations: [
     ProductListComponent,
     ProductCreateComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    StepperComponent
   ],
   imports: [
     CommonModule,

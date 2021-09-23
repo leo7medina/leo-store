@@ -11,6 +11,7 @@ import {MaterialModule} from '../material.module';
 import {BasicFromComponent} from './basic-from/basic-from.component';
 import {CategoriesModule} from './categories/categories.module';
 import {ProductsAdmModule} from './products-adm/products-adm.module';
+import { StepperComponent } from '../../components/stepper/stepper.component'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import {ProductsAdmModule} from './products-adm/products-adm.module';
     NavComponent,
     TableComponent,
     DashboardComponent,
-    BasicFromComponent,
+    BasicFromComponent
   ],
   imports: [
     CommonModule,
