@@ -1,0 +1,10 @@
+<p><input type='search' [formControl]='searchField'></p>
+<br>
+<p>{{searchField.value}}</p>
+
+
+<div class='image-grid'>
+  <div class='image' *ngFor='let result of results'>
+    <img src='{{result}}' alt='{{result}}'>
+  </div>
+</div>

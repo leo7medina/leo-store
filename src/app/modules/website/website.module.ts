@@ -10,13 +10,15 @@ import { SharedModule } from '../share.module'
 import { CoreModule } from '../core.module'
 import {CommonModule} from "@angular/common";
 import {WebsiteRoutingModule} from './website-routing.module';
+import { SearchComponent } from '../../components/search/search.component'
 
 @NgModule({
   declarations: [
     BannerComponent,
     HomeComponent,
     DemoComponent,
-    OrderComponent
+    OrderComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,
