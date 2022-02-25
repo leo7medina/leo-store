@@ -3,12 +3,11 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router} from '@angular/router';
 import { ProductsService } from 'src/app/services/product.service';
 import { MyValidators} from '../../../../utils/validators';
-import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { CategoriesService } from '../../../../services/categories.service'
-import { response } from 'express'
 import { Category } from '../../../../interfaces/Category'
+import { AngularFireStorage } from '@angular/fire/compat/storage'
 
 @Component({
   selector: 'app-form-product',

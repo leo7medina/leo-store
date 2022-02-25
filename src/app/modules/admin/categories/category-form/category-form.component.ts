@@ -2,12 +2,12 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {CategoriesService} from '../../../../services/categories.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
-import {AngularFireStorage} from '@angular/fire/storage';
 import {finalize, subscribeOn} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {MyValidators} from '../../../../utils/validators';
 import { v4 as uuidv4} from 'uuid';
 import { Category } from '../../../../interfaces/Category'
+import { AngularFireStorage } from '@angular/fire/compat/storage'
 
 @Component({
   selector: 'app-category-form',

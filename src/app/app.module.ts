@@ -9,14 +9,19 @@ import { LayoutComponent } from './components/layout/layout.component';
 import {SharedModule} from './modules/share.module';
 import {CoreModule} from './modules/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFireStorageModule } from '@angular/fire/storage';
+// import { AngularFireModule } from '@angular/fire';
+//import { AngularFireAuthModule } from '@angular/fire/auth';
+//import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from 'src/environments/environment';
 import { QuicklinkModule } from 'ngx-quicklink';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { AngularFireMessagingModule } from '@angular/fire/messaging'
-import { AngularFirestoreModule } from '@angular/fire/firestore'
+//import { AngularFireMessagingModule } from '@angular/fire/messaging'
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
+import { AngularFireMessagingModule } from '@angular/fire/compat/messaging'
+import { AngularFireStorageModule } from '@angular/fire/compat/storage'
+import { AngularFireAuthModule } from '@angular/fire/compat/auth'
+import { AngularFireModule } from '@angular/fire/compat'
+//import { AngularFirestoreModule } from '@angular/fire/firestore'
 
 @NgModule({
   declarations: [

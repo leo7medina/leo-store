@@ -9,6 +9,9 @@
 
 #.firebase
 
+
+.angular/
+
 # dependencies
 /node_modules
 

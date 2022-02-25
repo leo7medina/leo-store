@@ -62,7 +62,7 @@ export class TableDataSource extends DataSource<TableItem> {
       this.sort.sortChange
     ];
 
-    return merge(...dataMutations).pipe(map(() => {
+    return merge(dataMutations).pipe(map(() => {
       return this.getPagedData(this.getSortedData([...this.data]));
     }));
   }

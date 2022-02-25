@@ -3,8 +3,8 @@ import { isPlatformBrowser, isPlatformServer} from '@angular/common'
 import { NavigationEnd, Router } from '@angular/router'
 import { filter } from 'rxjs/operators'
 import { SwUpdate } from '@angular/service-worker'
-import { AngularFireMessaging } from '@angular/fire/messaging'
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore'
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore'
+import { AngularFireMessaging } from '@angular/fire/compat/messaging'
 
 declare var gtag;
 interface Token {
