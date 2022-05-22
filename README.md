@@ -5,6 +5,12 @@ Proyecto practica simulacion de una tienda online.
 ESTADO: FINALIZADO
 
 
+### Requerimientos
+
+- Node: 16.13.2
+- Npm: 8.1.2
+- Angular: 13.3.9
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.
 
 ### Development server
