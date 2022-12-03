@@ -1,6 +1,8 @@
+/*
 @import '~@angular/material/theming';
 
-$primary: mat-palette($mat-indigo);
+//$primary: _get-focused-arrow-color($mat-indigo);
+$primary: blue;
 
 :host {
   height: 100vh;
@@ -10,7 +12,7 @@ $primary: mat-palette($mat-indigo);
 // --background: linear-gradient(90deg, #1c3643, #273b47 25%, #1e5372);
 form {
   width: 90%;
-  margin: 0px auto;
+  margin: 0 auto;
   position: relative;
   top: 20px;
   mat-form-field {
@@ -21,7 +23,7 @@ form {
     justify-content: center;
   }
 }
-/* Medium only */
+!* Medium only *!
 @media screen and (min-width: 40em) and (max-width: 63.9375em) {
   form{
     position: absolute;
@@ -32,7 +34,7 @@ form {
   }
 }
 
-/* Large and up */
+!* Large and up *!
 @media screen and (min-width: 64em) {
   form {
     position: absolute;
@@ -42,3 +44,4 @@ form {
     width: 400px;
   }
 }
+*/

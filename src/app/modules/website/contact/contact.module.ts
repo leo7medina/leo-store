@@ -7,6 +7,7 @@ import { LayoutContactComponent } from './layout-contact/layout-contact.componen
 import { ListContactComponent } from './list-contact/list-contact.component';
 import { MaterialModule } from '../../material.module'
 import { FormsModule } from '@angular/forms'
+import {MatLegacyChipsModule} from '@angular/material/legacy-chips';
 
 
 @NgModule({
@@ -14,13 +15,14 @@ import { FormsModule } from '@angular/forms'
     LayoutContactComponent,
     ListContactComponent
   ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    SharedModule,
-    ContactRoutingModule,
-    MaterialModule
-  ]
+    imports: [
+        CommonModule,
+        FormsModule,
+        SharedModule,
+        ContactRoutingModule,
+        MaterialModule,
+        MatLegacyChipsModule
+    ]
 })
 export class ContactModule {
 

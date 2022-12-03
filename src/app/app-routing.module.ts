@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import {Routes, RouterModule, PreloadAllModules, ExtraOptions} from '@angular/router';
 import {LayoutComponent} from './components/layout/layout.component';
 import {AdminGuard} from './guard/admin.guard';
 import { PreloadService } from './services/preload.service'
@@ -25,13 +25,24 @@ const routes: Routes = [
   { path: '**', loadChildren: () => import('./modules/page-not-found/page.module').then(m => m.PageModule) }
 ];
 
+const extraOptions: ExtraOptions = {
+  enableTracing: false,
+  initialNavigation: 'enabledBlocking',
+  preloadingStrategy: QuicklinkStrategy,
+  paramsInheritanceStrategy: 'always'
+};
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    enableTracing: false,
-    preloadingStrategy: QuicklinkStrategy,
-    paramsInheritanceStrategy: 'always',
-    initialNavigation: 'enabled'
-})],
+  imports: [RouterModule.forRoot(routes, extraOptions)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+
+/*
+{
+  enableTracing: false,
+    preloadingStrategy: QuicklinkStrategy,
+  paramsInheritanceStrategy: 'always',
+  initialNavigation: 'enabled'
+}*/
